@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Solid;
 namespace solid0
 {
@@ -8,14 +9,49 @@ namespace solid0
         {
             Console.WriteLine("### Principios SOLID ###");
 
-            Console.WriteLine("Ingresa el valor para el ancho:");
-            int width = int.Parse(Console.ReadLine());
+            // Console.WriteLine("Ingresa el valor para el ancho:");
+            // int width = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Ingresa el valor para el alto:");
-            int heigth = int.Parse(Console.ReadLine());
+            // Console.WriteLine("Ingresa el valor para el alto:");
+            // int heigth = int.Parse(Console.ReadLine());
 
-            SingleResponsibility(width, heigth);
+           //SingleResponsibility(width, heigth);
+           OpenClose();
             Console.ReadKey();
+        }
+
+        public static void OpenClose(){
+            List<IFigura> figuras = new List<IFigura>();
+
+            Rectangulo rectangulo = new Rectangulo(){
+                Width = 20,
+                Height = 10
+            };
+
+            Triangulo triangulo = new Triangulo(){
+                myBase = 20,
+                Height = 30
+            };
+
+            Circulo circulo = new Circulo(){
+                Radio = 3.5
+            };
+
+            Rombo rombo = new Rombo(){
+                DiagonalMayor = 20.5,
+                DiagonalMenor = 10
+            };
+
+            figuras.Add(rectangulo);
+            figuras.Add(triangulo);
+            figuras.Add(circulo);
+            figuras.Add(rombo);
+            
+            foreach (var figura in figuras)
+            {
+                Console.WriteLine($"El area de la figura {figura.GetType()} es: {figura.Area()}");
+            }
+            
         }
 
         public static void SingleResponsibility(int width, int heigth){
