@@ -16,10 +16,22 @@ namespace solid0
             // int heigth = int.Parse(Console.ReadLine());
 
            //SingleResponsibility(width, heigth);
-           OpenClose();
+           //OpenClose();
+           LiskovSubstitution();
             Console.ReadKey();
         }
 
+        public static void LiskovSubstitution(){
+            IFigura rectangulo1 =  new Rectangulo(20,10);
+            System.Console.WriteLine($"El area de rectangulo1 es: {rectangulo1.Area()}");
+
+            IFigura cuadrado1 = new Cuadrado(10);
+            System.Console.WriteLine($"El area de cuadrado1 es: {cuadrado1.Area()}");
+
+            IFigura rectangulo2 = new Rectangulo(20,10);
+            System.Console.WriteLine($"EL area de rectangulo2 es: {rectangulo2.Area()}");
+
+        }
         public static void OpenClose(){
             List<IFigura> figuras = new List<IFigura>();
 
