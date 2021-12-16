@@ -17,7 +17,7 @@ namespace solid0
 
            //SingleResponsibility(width, heigth);
            //OpenClose();
-           LiskovSubstitution();
+           //LiskovSubstitution();
             Console.ReadKey();
         }
 
@@ -65,7 +65,6 @@ namespace solid0
             }
             
         }
-
         public static void SingleResponsibility(int width, int heigth){
 
             Figura figura = new Figura(){
