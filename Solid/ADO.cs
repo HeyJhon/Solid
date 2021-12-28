@@ -2,7 +2,7 @@ using System;
 using Microsoft.Data.SqlClient;
 
 namespace Solid{
-    public class ADO{
+    public class ADO: IADO{
     public void SaveDB(double resultado){
         
     string texto = $"El resultado de la operación es {resultado}";
@@ -25,5 +25,6 @@ namespace Solid{
             }
         }
     }
+
     }
 }

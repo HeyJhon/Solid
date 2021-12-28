@@ -8,19 +8,22 @@ namespace solid0
         static void Main(string[] args)
         {
             Console.WriteLine("### Principios SOLID ###");
-
-            // Console.WriteLine("Ingresa el valor para el ancho:");
-            // int width = int.Parse(Console.ReadLine());
-
-            // Console.WriteLine("Ingresa el valor para el alto:");
-            // int heigth = int.Parse(Console.ReadLine());
-
            //SingleResponsibility(width, heigth);
            //OpenClose();
            //LiskovSubstitution();
+           //Interface Segregation
+            ADO conexionSQL = new ADO();
+            ADOMySQL conexionMySQL = new ADOMySQL();
+
+            DependencyInversion(conexionSQL);
+            DependencyInversion(conexionMySQL);
+            
             Console.ReadKey();
         }
 
+        public static void DependencyInversion(IADO conexion){
+            conexion.SaveDB(900);
+        }
         public static void LiskovSubstitution(){
             IFigura rectangulo1 =  new Rectangulo(20,10);
             System.Console.WriteLine($"El area de rectangulo1 es: {rectangulo1.Area()}");
